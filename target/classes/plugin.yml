@@ -1,0 +1,4 @@
+name: DeepslateMiner
+version: '1.0-SNAPSHOT'
+main: org.z4te.deepslateMiner.Main
+api-version: '1.21'
