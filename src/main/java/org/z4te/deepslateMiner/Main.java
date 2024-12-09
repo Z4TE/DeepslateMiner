@@ -1,6 +1,8 @@
 package org.z4te.deepslateMiner;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -34,9 +36,11 @@ public final class Main extends JavaPlugin implements Listener {
         Material block = event.getBlock().getType();
         ItemStack item = event.getItemInHand();
         Player player = event.getPlayer();
+        Location location = event.getBlock().getLocation();
 
         if (isInstantBreakable(block, item, player)) {
             event.setInstaBreak(true);
+            Objects.requireNonNull(location.getWorld()).playSound(location, Sound.BLOCK_DEEPSLATE_BREAK,1 ,1);
         }
 
     }
